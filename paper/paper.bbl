@@ -1,0 +1,46 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Avdjiev et~al.(2019)Avdjiev, Du, Koch, and Shin]{avdjiev2019}
+Stefan Avdjiev, Wenxin Du, Cathérine Koch, and Hyun~Song Shin.
+\newblock The dollar, bank leverage, and deviations from covered interest
+  parity.
+\newblock \emph{American Economic Review: Insights}, 1\penalty0 (2):\penalty0
+  193--208, 2019.
+
+\bibitem[Campbell and Thompson(2008)]{campbell2008}
+John~Y. Campbell and Samuel~B. Thompson.
+\newblock Predicting excess stock returns out of sample: Can anything beat the
+  historical average?
+\newblock \emph{Review of Financial Studies}, 21\penalty0 (4):\penalty0
+  1509--1531, 2008.
+
+\bibitem[Clark and West(2007)]{clark2007}
+Todd~E. Clark and Kenneth~D. West.
+\newblock Approximately normal tests for equal predictive accuracy in nested
+  models.
+\newblock \emph{Journal of Econometrics}, 138\penalty0 (1):\penalty0 291--311,
+  2007.
+
+\bibitem[Hofmann et~al.(2020)Hofmann, Shim, and Shin]{hofmann2020}
+Boris Hofmann, Ilhyock Shim, and Hyun~Song Shin.
+\newblock Bond risk premia and the exchange rate.
+\newblock \emph{Journal of Money, Credit and Banking}, 52\penalty0
+  (S2):\penalty0 497--520, 2020.
+
+\bibitem[Newey and West(1987)]{newey1987}
+Whitney~K. Newey and Kenneth~D. West.
+\newblock A simple, positive semi-definite, heteroskedasticity and
+  autocorrelation consistent covariance matrix.
+\newblock \emph{Econometrica}, 55\penalty0 (3):\penalty0 703--708, 1987.
+
+\bibitem[Verdelhan(2018)]{verdelhan2018}
+Adrien Verdelhan.
+\newblock The share of systematic variation in bilateral exchange rates.
+\newblock \emph{Journal of Finance}, 73\penalty0 (1):\penalty0 375--418, 2018.
+
+\end{thebibliography}
