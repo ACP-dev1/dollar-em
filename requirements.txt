@@ -1,0 +1,8 @@
+pandas>=2.1
+numpy
+statsmodels>=0.14
+scipy
+matplotlib
+yfinance
+tabulate
+requests
