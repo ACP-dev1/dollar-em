@@ -10,6 +10,7 @@
 \usepackage{threeparttable}
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage[section]{placeins}
 \usepackage[authoryear,round]{natbib}
 \usepackage{setspace}
 \usepackage[hidelinks]{hyperref}
@@ -135,7 +136,7 @@ jf.\ \citet{campbell2008}, og testes med \citet{clark2007}. Et ikke-signifikant 
 
 Tabel~\ref{tab:hyp} viser de seks hypoteser. De blev skrevet ned, før analysen blev kørt på de rigtige data. Det er dog ikke dokumenteret med tidsstempler, så det må læseren tage for givet.
 
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \small
 \caption{Hypoteser fastlagt før estimation og resultat}
@@ -167,7 +168,7 @@ Når der kontrolleres for olie og amerikanske renter, er dollarbetaen for EMLC \
 
 Det tydeligste resultat i kontrolspecifikationen er de amerikanske renter. En stigning på 1 procentpoint i den 10-årige rente er forbundet med et afkast på \RateLok\,\% på restposten ($t=\TRateLok$) og \RateEMB\,\% på hård valuta ($t=\TRateEMB$). At hård valuta rammes hårdest, kan relateres til, at EMB består af dollarobligationer, der prisfastsættes direkte ud fra den amerikanske rentekurve med et kreditspænd ovenpå. Amerikanske renter smitter altså direkte af på EM-obligationerne, ud over dollareffekten.
 
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \small
 \begin{threeparttable}
@@ -190,7 +191,7 @@ Det er dog vigtigt at pointere, at ingen af proxyerne matcher EMLC's landevægte
 
 Figur~\ref{fig:roll} viser 36 måneders rullende betaer. Betaen for EMLC har ligget mellem \RollMin{} og \RollMax{} og er senest \RollLast. Følsomheden varierer altså over tid, men har været negativ i hele perioden.
 
-\begin{figure}[h]
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=0.9\textwidth]{fig_rullende_beta.png}
 \caption{Rullende dollarbeta (36 måneder)}
@@ -203,7 +204,7 @@ Tabel~\ref{tab:asym} og figur~\ref{fig:asym} viser resultaterne fra ligning~\eqr
 
 Eksplorativt, og altså ikke fastlagt på forhånd, er forskellen signifikant for valutadelen. Spotkurven har en beta på \SpotOp{} med stigende dollar mod \SpotNed{} med faldende ($p=\NoVixPSpot$), og for CEW er $p=\NoVixPCEW$. En naturlig bekymring er, at måneder med stigende dollar ofte er krisemåneder, som marts 2020 og efteråret 2022, så asymmetrien kan handle om kriser snarere end om dollarens retning. Når der kontrolleres for ændringen i VIX, er $p$-værdien for spotkurven dog stadig \VixPSpot{} og for CEW \VixPCEW, jf.\ tabel~\ref{tab:robasym}. Asymmetrien i valutadelen kan altså ikke alene forklares af kriser målt ved VIX. Da resultatet er eksplorativt, bør det dog bekræftes på nye data, før der lægges vægt på det.
 
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \small
 \begin{threeparttable}
@@ -216,7 +217,7 @@ Eksplorativt, og altså ikke fastlagt på forhånd, er forskellen signifikant fo
 \end{threeparttable}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=0.72\textwidth]{fig_asymmetri.png}
 \caption{EMLC-afkast mod ændringen i dollarindekset}
@@ -227,7 +228,7 @@ Eksplorativt, og altså ikke fastlagt på forhånd, er forskellen signifikant fo
 
 Tabel~\ref{tab:oos} viser, at sidste måneds dollarændring ikke giver en bedre forudsigelse end det historiske gennemsnit. For EMLC er $R^2_{OOS}=\OosRto\,\%$ med en Clark-West $p$-værdi på \OosP, så H5 \DomV. Den negative $R^2_{OOS}$ betyder, at modellen faktisk forudsiger dårligere end blot at bruge gennemsnittet. Der findes altså ingen evidens for, at dollareksponeringen kan udnyttes som et handelssignal med en måneds forsinkelse. Eksponeringen viser sig samtidig, og den er dermed en risiko, man bærer, snarere end en mulighed, man kan time.
 
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \small
 \begin{threeparttable}
@@ -246,7 +247,7 @@ Følgende afsnit undersøger, om den seneste dollarvending opførte sig, som den
 
 I september ventede modellen et afkast på \SepEMLCmodel\,\% for EMLC mod et faktisk afkast på \SepEMLC\,\%, mens EMB gav \SepEMB\,\% mod ventet \SepEMBmodel\,\%. \SepTekst{} Det er dog vigtigt at pointere, at en enkelt måned indeholder betydelig støj, og at forskellen derfor ikke kan tolkes som en systematisk ændring i sammenhængen.
 
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \small
 \begin{threeparttable}
@@ -266,7 +267,7 @@ Følgende afsnit undersøger, om hovedresultaterne afhænger af valget af dollar
 
 \paragraph{Dollarindeks uden EM-valutaer.} Feds brede indeks har store vægte på blandt andet kinesisk yuan og mexicansk peso. En del af sammenhængen mellem indekset og EM-valutaerne er derfor mekanisk, fordi de samme valutaer indgår på begge sider af regressionen. Tabel~\ref{tab:robdollar} gentager estimationen med indekset mod avancerede økonomier, som ikke indeholder EM-valutaer. Dollarbetaen for EMLC falder fra \BetaEMLC{} til \AfeEMLC{} ($t=\TAfeEMLC$), og forklaringsgraden falder fra \RtoEMLC{} til \AfeRtoEMLC. For CEW falder $R^2$ fra \BredRtoCEW{} til \AfeRtoCEW. Det giver et indtryk af, hvor meget af den oprindelige forklaringsgrad der var mekanisk. Sammenhængen er dog stadig stærk og signifikant for alle aktiver, og restposten har en beta på \AfeLok{} ($t=\TAfeLok$). Hovedresultatet holder dermed.
 
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \small
 \begin{threeparttable}
@@ -281,7 +282,7 @@ Følgende afsnit undersøger, om hovedresultaterne afhænger af valget af dollar
 
 \paragraph{Valutaproxy.} Tabel~\ref{tab:robdek} sammenligner opdelingen med CEW og med spotkurven. Valutaandelen ligger mellem \AndelMin{} og \AndelMax\,\%, og restposten er negativ og signifikant i begge tilfælde.
 
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \small
 \begin{threeparttable}
@@ -296,7 +297,7 @@ Følgende afsnit undersøger, om hovedresultaterne afhænger af valget af dollar
 
 \paragraph{Asymmetri og kriser.} Tabel~\ref{tab:robasym} viser asymmetritesten med og uden kontrol for ændringen i VIX.
 
-\begin{table}[h]
+\begin{table}[!htb]
 \centering
 \small
 \begin{threeparttable}
