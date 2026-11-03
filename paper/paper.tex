@@ -200,7 +200,7 @@ Figur~\ref{fig:roll} viser 36 måneders rullende betaer. Betaen for EMLC har lig
 
 \subsection{Asymmetri}
 
-Tabel~\ref{tab:asym} og figur~\ref{fig:asym} viser resultaterne fra ligning~\eqref{eq:asym}. For EMLC er betaen \AsymOp{} i måneder med stigende dollar og \AsymNed{} i måneder med faldende dollar. Forskellen går i den forventede retning, men testen af ens betaer giver $p=\AsymP$, så H4 \DomIV{} på 5\,\%-niveau. Testen har dog begrænset styrke. I simulationerne i bilag~\ref{app:mc} forkaster den kun i \MCPowEMLC\,\% af tilfældene, selv når der er en sand forskel på 0,4. Resultatet kan derfor ikke tolkes som evidens for, at effekten er symmetrisk.
+Tabel~\ref{tab:asym} og figur~\ref{fig:asym} viser resultaterne fra ligning~\eqref{eq:asym}. For EMLC er betaen \AsymOp{} i måneder med stigende dollar og \AsymNed{} i måneder med faldende dollar. Forskellen går i den forventede retning, men testen af ens betaer giver $p=\AsymP$, så H4 \DomIV{} på 5\,\%-niveau. Testen har dog begrænset styrke. I en Monte Carlo-simulation med \MCR{} kunstige datasæt, hvor der er indlagt en sand forskel på 0,4, forkaster den kun i \MCPowEMLC\,\% af tilfældene. Resultatet kan derfor ikke tolkes som evidens for, at effekten er symmetrisk.
 
 Eksplorativt, og altså ikke fastlagt på forhånd, er forskellen signifikant for valutadelen. Spotkurven har en beta på \SpotOp{} med stigende dollar mod \SpotNed{} med faldende ($p=\NoVixPSpot$), og for CEW er $p=\NoVixPCEW$. En naturlig bekymring er, at måneder med stigende dollar ofte er krisemåneder, som marts 2020 og efteråret 2022, så asymmetrien kan handle om kriser snarere end om dollarens retning. Når der kontrolleres for ændringen i VIX, er $p$-værdien for spotkurven dog stadig \VixPSpot{} og for CEW \VixPCEW, jf.\ tabel~\ref{tab:robasym}. Asymmetrien i valutadelen kan altså ikke alene forklares af kriser målt ved VIX. Da resultatet er eksplorativt, bør det dog bekræftes på nye data, før der lægges vægt på det.
 
@@ -334,16 +334,5 @@ Samlet set viser analysen, at en position i EM-obligationer i lokalvaluta i prak
 
 \bibliographystyle{plainnat}
 \bibliography{references}
-
-% ------------------------------------------------------------------ Bilag
-\newpage
-\appendix
-\section{Validering af koden}\label{app:mc}
-
-For at sikre, at koden regner rigtigt, er hele analysen kørt på \MCR{} syntetiske datasæt med kendte parametre. Monte Carlo-standardfejl står i parentes.
-
-De gennemsnitlige estimater er $\hat\beta^{op}=\MCBetaOp$ og $\hat\beta^{ned}=\MCBetaNed$ mod sande værdier på $-1{,}0$ og $-0{,}6$, og $\hat\beta^{EMB}=\MCBetaEMB$ mod sand $-0{,}4$. Estimaterne er altså centreret om de sande værdier.
-
-Under nulhypotesen om ingen forudsigelseskraft forkaster Clark-West-testen i \MCCWsize\,\% (\MCCWsizeSE) af tilfældene mod nominelt 5\,\%, så den er let konservativ. Asymmetritesten forkaster i \MCSizeAsym\,\% (\MCSizeAsymSE) af tilfældene, når den sande effekt er symmetrisk, hvilket er tæt på det nominelle niveau. Ved en sand forskel på 0,4 har testen en styrke på \MCPowEMLC\,\% (\MCPowEMLCSE) for EMLC og \MCPowCEW\,\% (\MCPowCEWSE) for CEW.
 
 \end{document}
