@@ -1,0 +1,9 @@
+
+# LaTeX build-filer
+paper/*.aux
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.toc
