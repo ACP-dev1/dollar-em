@@ -7,3 +7,10 @@ paper/*.fls
 paper/*.log
 paper/*.out
 paper/*.toc
+
+# v2: rådata og API-nøgle
+data/
+fred_key.txt
+__pycache__/
+.DS_Store
+paper/resultater/
