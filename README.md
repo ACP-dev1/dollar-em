@@ -23,7 +23,7 @@ Vægtet aggregat, februar 2006 – november 2026 ($N = 250$). Dollarbeta = proce
 - **En uafdækket euroinvestor har næsten ingen dollarrisiko**, fordi euroen selv svækkes, når dollaren styrkes. En euroinvestor i en "EUR-hedged" andelsklasse har derimod den fulde dollarrisiko.
 - **For euroinvestoren kommer dollarrisikoen fra Centraleuropa og Brasilien.** De asiatiske lande med styrede valutaer (Kina, Indien, Thailand, Malaysia) har positiv beta.
 - **Markedet som helhed kan ikke times:** ingen model slår det historiske gennemsnit uden for stikprøven.
-- **På tværs af lande:** at holde de fire EMLC-lande med det stærkeste kombinerede signal (carry, momentum og value) har givet 3,3 procentpoint mere om året end EMLC-porteføljen ($t = 2{,}39$). Det er dog ikke signifikant efter korrektion for, at fire signaler er testet, og det er koncentreret efter 2022.
+- **På tværs af lande:** at holde de fire EMLC-lande med det stærkeste kombinerede signal (carry, momentum og value) har givet 3,3 procentpoint mere om året end EMLC-porteføljen (*t* = 2,39). Det er dog ikke signifikant efter korrektion for, at fire signaler er testet, og det er koncentreret efter 2022.
 
 ![Dollarbeta pr. land](resultater/fig_lande.png)
 
