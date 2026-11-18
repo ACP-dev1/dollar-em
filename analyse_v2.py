@@ -311,6 +311,7 @@ ax.set_title("Hvor meget falder EM-obligationer, når dollaren stiger 1 %?", fon
 ax.legend(frameon=False, fontsize=7.5, loc="lower left")
 fig.tight_layout()
 fig.savefig(RES / "fig_rullende.pdf")
+fig.savefig(RES / "fig_rullende.png", dpi=150)
 plt.close(fig)
 N["rull_seneste"] = {k: float(v.iloc[-1]) for k, v in roll.items()}
 N["rull_range"] = {k: [float(v.min()), float(v.max())] for k, v in roll.items()}
@@ -329,6 +330,7 @@ ax.set_xlabel("Dollarbeta, uafdækket afkast")
 ax.legend(frameon=False, fontsize=7.5, loc="upper right")
 fig.tight_layout()
 fig.savefig(RES / "fig_lande.pdf")
+fig.savefig(RES / "fig_lande.png", dpi=150)
 plt.close(fig)
 
 # ---------------------------------------------------------------------------
@@ -531,6 +533,7 @@ ax.set_ylabel("Kumuleret SSE-forskel")
 ax.legend(frameon=False, fontsize=7, loc="upper center", bbox_to_anchor=(0.5, -0.12), ncol=2)
 fig.tight_layout()
 fig.savefig(RES / "fig_oos.pdf")
+fig.savefig(RES / "fig_oos.png", dpi=150)
 plt.close(fig)
 
 # ---------------------------------------------------------------------------
@@ -684,6 +687,7 @@ for a in axs:
     a.tick_params(labelsize=7)
 fig.tight_layout()
 fig.savefig(RES / "fig_strategier.pdf")
+fig.savefig(RES / "fig_strategier.png", dpi=150)
 plt.close(fig)
 
 # ---------------------------------------------------------------------------
