@@ -13,6 +13,17 @@
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage[round]{natbib}
+\usepackage{needspace}
+\usepackage[section]{placeins}
+\usepackage{etoolbox}
+% ingen overskrifter nederst på en side
+\pretocmd{\section}{\needspace{16\baselineskip}}{}{}
+\pretocmd{\subsection}{\needspace{10\baselineskip}}{}{}
+\widowpenalty=10000
+\clubpenalty=10000
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
 
 \renewcommand{\contentsname}{Indholdsfortegnelse}
 \renewcommand{\figurename}{Figur}
@@ -150,7 +161,7 @@ testet med \citet{clark2007}. Den økonomiske værdi måles som gevinsten i sikk
 \subsection{Hypoteser}
 Tabel \ref{tab:hyp} viser hypoteserne. H1--H4 blev formuleret, efter at foreløbige estimater af aggregatet var set, og er derfor ikke uafhængige test. H5--H8 og alle prognosespecifikationer blev fastlagt i koden, før prognoserne blev kørt første gang. Det er ikke dokumenteret med et eksternt tidsstempel.
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
 \caption{Hypoteser og resultat}
 \label{tab:hyp}
@@ -178,13 +189,13 @@ H8 & Afdækningsreglen giver euroinvestoren en højere Sharpe-ratio end altid ua
 \subsection{Dollarfølsomhed i de enkelte lande}
 Tabel \ref{tab:lande} viser dollarbetaen for en dollarinvestor i hvert land opdelt i valuta og obligation. Alle lande har en negativ dollarbeta, men størrelsen varierer meget. De mest følsomme er Ungarn ($-2{,}01$), Brasilien ($-1{,}90$) og Polen ($-1{,}73$). Når dollaren stiger 1\,\%, falder ungarske statsobligationer altså omkring 2\,\% målt i dollar. De mindst følsomme er de asiatiske lande med styrede valutaer: Indien ($-0{,}47$) og Kina ($-0{,}13$), hvor Kina ikke er signifikant. Dollaren forklarer 53--62\,\% af variationen i de centraleuropæiske lande, men kun 3\,\% i Kina. H1 understøttes for 11 af 12 lande.
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
 \begin{threeparttable}
 \caption{Dollarbeta for en dollarinvestor pr.\ land, opdelt i valuta og obligation}
 \label{tab:lande}
 \small
-\input{resultater/tab_lande_usd.tex}
+\input{../resultater/tab_lande_usd.tex}
 \begin{tablenotes}\footnotesize
 \item \emph{Note:} Estimation af \eqref{eq:reg} for type A. $\beta^{FX}$ og $\beta^{LC}$ er betaerne for valutadelen og obligationsdelen og summerer til $\beta^{USD}$. Valutaandel $=\beta^{FX}/\beta^{USD}$ (udeladt for Kina, hvor $\beta^{USD}$ er tæt på nul). Dollar: Feds AFE-indeks. Newey-West $t$-værdier (3 lags) i parentes. $^{*}$, $^{**}$, $^{***}$: signifikant på 10, 5 og 1\,\%. Landene er sorteret efter dollarbeta.
 \end{tablenotes}
@@ -199,13 +210,13 @@ Obligationsbetaen er negativ og signifikant på mindst 10\,\%-niveau i ni lande 
 \subsection{Euro- eller dollarinvestor?}
 Tabel \ref{tab:agg} viser dollarbetaen for de fire investortyper. For en dollarinvestor er betaen $-1{,}33$ ($t=-12{,}3$), og dollaren forklarer 53\,\% af variationen. For en uafdækket euroinvestor er betaen kun $-0{,}19$ ($t=-1{,}9$), og dollaren forklarer 2\,\%. Forskellen følger direkte af \eqref{eq:betaeur}: euroens egen dollarbeta er $-1{,}14$, så $-1{,}33 - (-1{,}14) = -0{,}19$. Når dollaren styrkes, falder euroen næsten lige så meget som EM-valutaerne, og for euroinvestoren udligner de to bevægelser hinanden. H3 understøttes.
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
 \begin{threeparttable}
 \caption{Dollarbeta for fire investortyper, vægtet aggregat og EMLC}
 \label{tab:agg}
 \small
-\input{resultater/tab_aggregat.tex}
+\input{../resultater/tab_aggregat.tex}
 \begin{tablenotes}\footnotesize
 \item \emph{Note:} Aggregatet er vægtet med EMLC-fondens historiske valutavægte, 2006--2026 ($N=250$). EMLC-ETF: fondens udlodningsjusterede afkast, 2010--2026 ($N=196$); for euroinvestoren omregnet med \eqref{eq:eur}. Newey-West $t$-værdier i parentes.
 \end{tablenotes}
@@ -218,31 +229,31 @@ Resultatet bekræftes på selve EMLC-fonden. Med AFE-indekset er dollarbetaen $-
 
 Billedet på landeniveau er mere nuanceret (tabel \ref{tab:invlande} og figur \ref{fig:lande}). Forventningen var, at de centraleuropæiske valutaer, som følger euroen tæt, ville have en dollarbeta tæt på nul for en euroinvestor. Det er ikke tilfældet. Ungarn ($-0{,}87$), Brasilien ($-0{,}77$), Polen ($-0{,}59$) og Tjekkiet ($-0{,}31$) har alle negative og signifikante betaer for euroinvestoren. Forklaringen er, at disse valutaer svækkes \emph{mere} end euroen, når dollaren styrkes. Det er typisk i perioder med global uro, hvor risikovilligheden falder. Omvendt har de asiatiske lande med styrede valutaer, Kina ($+1{,}01$), Indien ($+0{,}68$), Thailand og Malaysia, \emph{positive} betaer for euroinvestoren. Deres valutaer følger dollaren, så for en euroinvestor fungerer de som en dollarposition. Kina og Indien er de to lande, hvor H3 ikke holder. På aggregeret niveau udligner de to grupper hinanden.
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
 \begin{threeparttable}
 \caption{Dollarbeta pr.\ land for fire investortyper}
 \label{tab:invlande}
 \small
-\input{resultater/tab_lande_investor.tex}
+\input{../resultater/tab_lande_investor.tex}
 \begin{tablenotes}\footnotesize
 \item \emph{Note:} Estimation af \eqref{eq:reg} for hver investortype, jf.\ \eqref{eq:A}--\eqref{eq:D}. AFE-dollarindeks. Newey-West $t$-værdier i parentes.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-\begin{figure}[h!]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.86\textwidth]{resultater/fig_lande.pdf}
+\includegraphics[width=0.86\textwidth]{../resultater/fig_lande.pdf}
 \caption{Dollarbeta pr.\ land for en uafdækket dollar- og euroinvestor}
 \label{fig:lande}
 \end{figure}
 
 Figur \ref{fig:rullende} viser, at forskellen mellem de to investorer har været stabil over tid. Dollarinvestorens rullende beta har ligget mellem $-2{,}2$ og $-0{,}9$ og er senest $-1{,}0$. Euroinvestorens har svinget omkring nul, mellem $-1{,}0$ og $+0{,}3$, og er senest nul. Den uafdækkede euroinvestor har desuden haft en lavere volatilitet end dollarinvestoren (9,9 mod 13,0\,\% om året) og et lidt højere gennemsnitligt afkast (4,7 mod 4,2\,\% om året) i perioden.
 
-\begin{figure}[h!]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.86\textwidth]{resultater/fig_rullende.pdf}
+\includegraphics[width=0.86\textwidth]{../resultater/fig_rullende.pdf}
 \caption{Rullende dollarbeta (36 måneder) for det vægtede aggregat}
 \label{fig:rullende}
 \end{figure}
@@ -254,13 +265,13 @@ Asymmetrien fra version 1 genfindes i punktestimaterne: dollarinvestorens beta e
 
 Når der kontrolleres for ændringer i VIX, den amerikanske 10-årige rente og olieprisen, falder dollarinvestorens beta til $-1{,}06$, og euroinvestorens bliver $+0{,}11$ og insignifikant. Både VIX og den amerikanske rente har signifikante og næsten ens effekter for de to investorer: en stigning i den amerikanske rente på 1 procentpoint er forbundet med et fald på omkring 2,5--2,8\,\%. Euroinvestoren slipper altså for dollarrisikoen, men ikke for den globale risikovillighed og de amerikanske renter.
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
 \begin{threeparttable}
 \caption{Robusthed: delperioder, asymmetri og kontroller}
 \label{tab:rob}
 \small
-\input{resultater/tab_robusthed.tex}
+\input{../resultater/tab_robusthed.tex}
 \begin{tablenotes}\footnotesize
 \item \emph{Note:} Vægtet aggregat, AFE-dollarindeks. Asymmetri: \eqref{eq:reg} med separate betaer for $\max(\Delta\text{USD},0)$ og $\min(\Delta\text{USD},0)$, Wald-test. Kontroller: ændring i VIX (point), den amerikanske 10-årige rente (procentpoint) og Brent-olie (log-\%). Newey-West $t$-værdier i parentes.
 \end{tablenotes}
@@ -273,14 +284,14 @@ Når der kontrolleres for ændringer i VIX, den amerikanske 10-årige rente og o
 \subsection{Markedet som helhed}
 Tabel \ref{tab:prog} viser, at ingen af modellerne forudsiger næste måneds afkast bedre end det historiske gennemsnit. Alle $R^2_{OOS}$ er negative eller nul for både dollar- og euroinvestoren, og ingen er signifikante på 5\,\%-niveau. Hitraterne på 56--60\,\% er ikke højere end andelen af måneder med positivt overskudsafkast (59\,\% for dollarinvestoren og 61\,\% for euroinvestoren), som en model, der altid forudsiger et positivt afkast, ville ramme. H5 og H6 understøttes ikke.
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
 \begin{threeparttable}
 \caption{Forudsigelse af næste måneds overskudsafkast uden for stikprøven}
 \label{tab:prog}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
-\input{resultater/tab_prognose.tex}
+\input{../resultater/tab_prognose.tex}
 \begin{tablenotes}\footnotesize
 \item \emph{Note:} Vægtet aggregat, februar 2012 -- november 2026 ($N=178$; univariate modeller med længere data har op til 226 observationer). Udvidende vindue med mindst 60 måneder, fortegnsbegrænsede koefficienter. $R^2_{OOS}$ i procent mod det historiske gennemsnit. CW $p$: ensidet Clark-West-test. Hit: andel måneder, hvor prognosen rammer fortegnet på overskudsafkastet (\%). $\Delta$CER: gevinst i sikkerhedsækvivalent afkast i procentpoint p.a.\ for en investor med risikoaversion 3.
 \end{tablenotes}
@@ -289,23 +300,23 @@ Tabel \ref{tab:prog} viser, at ingen af modellerne forudsiger næste måneds afk
 
 Det mest interessante resultat er hovedmodellen for euroinvestoren. Den har et negativt $R^2_{OOS}$ ($-2{,}7$\,\%), men Clark-West-testen er tæt på signifikans ($p=0{,}12$), og en investor, der havde brugt modellen, ville have opnået en gevinst på 2,5 procentpoint i sikkerhedsækvivalent afkast. Testen tager højde for, at en større model bliver straffet for estimationsstøj, og resultatet antyder, at modellen indeholder information, som ikke slår igennem i kvadratfejlen. Tabel \ref{tab:perioder} viser dog, at gevinsten kommer fra perioden før 2022. I holdout-perioden 2022--2026 er hovedmodellens $R^2_{OOS}$ for euroinvestoren $-9{,}6$\,\%. Kombinationsprognosen er den mest robuste: dens $R^2_{OOS}$ er tæt på nul i alle perioder og svagt positiv efter 2022, men langt fra signifikant. Figur \ref{fig:oos} viser forløbet.
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
 \begin{threeparttable}
 \caption{Prognoser i delperioder}
 \label{tab:perioder}
 \footnotesize
 \setlength{\tabcolsep}{4.5pt}
-\input{resultater/tab_prognose_perioder.tex}
+\input{../resultater/tab_prognose_perioder.tex}
 \begin{tablenotes}\footnotesize
 \item \emph{Note:} ``Fri'': ubegrænsede koefficienter. ``Fortegnsbegr.'': koefficienter med forkert fortegn sat til nul. Holdout: januar 2022 -- november 2026 ($N=59$).
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-\begin{figure}[h!]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.86\textwidth]{resultater/fig_oos.pdf}
+\includegraphics[width=0.86\textwidth]{../resultater/fig_oos.pdf}
 \caption{Kumuleret forskel i kvadratfejl: historisk gennemsnit minus model. Stigende kurve betyder, at modellen klarer sig bedre. Lodret linje: start på holdout-perioden.}
 \label{fig:oos}
 \end{figure}
@@ -313,13 +324,13 @@ Det mest interessante resultat er hovedmodellen for euroinvestoren. Den har et n
 \subsection{På tværs af lande}
 Selv om markedet som helhed ikke kan times, kan forskellene mellem landene muligvis forudsiges. Tabel \ref{tab:tv} viser afkastet af strategier, der rangerer alle 12 lande hver måned. En strategi, der køber de fire lande med højest styringsrente og sælger de fire med lavest, har givet 5,3\,\% om året ($t=2{,}35$), og kompositsignalet 6,2\,\% ($t=2{,}55$). Momentum og value har ikke givet noget alene.
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
 \begin{threeparttable}
 \caption{Landeallokering: afkast af strategier baseret på signaler på tværs af lande (alle 12 lande)}
 \label{tab:tv}
 \small
-\input{resultater/tab_tvaersnit.tex}
+\input{../resultater/tab_tvaersnit.tex}
 \begin{tablenotes}\footnotesize
 \item \emph{Note:} Månedlig rangering af alle 12 lande efter signal; uafdækket afkast for en dollarinvestor næste måned. Long--short: ligevægtet top 4 minus bund 4. Aktivt afkast: top 4 minus ligevægtet gennemsnit af alle lande. Komposit: gennemsnit af standardiserede signaler. 2003--2026 ($N=285$ for carry og komposit). Newey-West $t$-værdier i parentes.
 \end{tablenotes}
@@ -328,14 +339,14 @@ Selv om markedet som helhed ikke kan times, kan forskellene mellem landene mulig
 
 Tabel \ref{tab:tv} har dog et problem: den lader strategien vælge Kina og Indien i hele perioden, selv om de først kom med i EMLC i 2020 og 2024. Tabel \ref{tab:bm} retter det og besvarer det kontrafaktiske spørgsmål: hvad ville investoren have fået, hvis hun \emph{ikke} havde fulgt strategien? Her må strategien kun vælge blandt de lande, der havde en positiv vægt i EMLC på tidspunktet, og den sammenlignes med at holde de samme lande med EMLC's vægte, som er det naturlige alternativ for en investor med EMLC som benchmark.
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
 \begin{threeparttable}
 \caption{Strategi mod kontrafaktisk benchmark: investerbare lande}
 \label{tab:bm}
 \small
 \setlength{\tabcolsep}{5pt}
-\input{resultater/tab_benchmark.tex}
+\input{../resultater/tab_benchmark.tex}
 \begin{tablenotes}\footnotesize
 \item \emph{Note:} Hver måned vælges blandt de lande, der har positiv vægt i EMLC på tidspunktet. Strategi: de fire lande med højest signal, ligevægtet. EMLC-vægtet benchmark: de samme lande vægtet med EMLC's senest kendte valutavægte. Ligevægtet benchmark: de samme lande, lige vægte. Uafdækket afkast næste måned. Carry: 2005--2026 ($N=255$), komposit: 2004--2026 ($N=262$). Merafkastet er det samme for de to investorer, fordi omregningen fra dollar til euro påvirker strategi og benchmark ens. Newey-West $t$-værdier i parentes, IR: informationsratio.
 \end{tablenotes}
@@ -347,22 +358,22 @@ Med det investerbare univers har en dollarinvestor, der fulgte kompositstrategie
 \subsection{Afdækningsbeslutningen for euroinvestoren}
 For en euroinvestor er det centrale spørgsmål ikke kun, om afkastet kan forudsiges, men om valutaen skal afdækkes. Hovedmodellens prognose for euroinvestorens valutaoverskudsafkast ($r^B-r^D$) har et negativt $R^2_{OOS}$ ($-1{,}0$\,\%), men Clark-West-testen er signifikant på 10\,\%-niveau ($p=0{,}05$). Tabel \ref{tab:afd} viser, at afdækningsreglen har hævet Sharpe-ratioen fra 0,36 for en altid uafdækket investor og 0,35 for en altid afdækket investor til 0,41. Reglen har holdt valutaen uafdækket i 66\,\% af månederne. For dollarinvestoren giver reglen ingen gevinst. Her er det mest bemærkelsesværdige, at en altid afdækket dollarinvestor har haft en langt højere Sharpe-ratio (0,50) end en uafdækket (0,18). Valutarisikoen er altså ikke blevet betalt for en dollarinvestor i perioden. H8 understøttes, men forskellen i Sharpe-ratio er ikke testet formelt og bør ses som en indikation.
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
 \begin{threeparttable}
 \caption{Afdækningsstrategier uden for stikprøven, 2012--2026}
 \label{tab:afd}
 \small
-\input{resultater/tab_afdaekning.tex}
+\input{../resultater/tab_afdaekning.tex}
 \begin{tablenotes}\footnotesize
 \item \emph{Note:} Vægtet aggregat. Dynamisk afdækning: uafdækket, når hovedmodellen forudsiger positivt valutaoverskudsafkast, ellers afdækket. Afdækning via styringsrenteforskellen. $N=178$.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-\begin{figure}[h!]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.9\textwidth]{resultater/fig_strategier.pdf}
+\includegraphics[width=0.9\textwidth]{../resultater/fig_strategier.pdf}
 \caption{Kumuleret afkast af afdækningsstrategier for euroinvestoren (venstre) og af kompositstrategien på tværs af lande (højre)}
 \label{fig:strat}
 \end{figure}
@@ -370,14 +381,14 @@ For en euroinvestor er det centrale spørgsmål ikke kun, om afkastet kan foruds
 \subsection{Robusthed: EMLC-fonden}
 Som robusthed er prognoserne gentaget på selve EMLC-fonden for 2015--2026 ($N=136$) i tabel \ref{tab:progemlc}. Resultaterne er de samme: ingen model forudsiger fondens afkast bedre end gennemsnittet, hverken for en dollar- eller en euroinvestor.
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
 \begin{threeparttable}
 \caption{Forudsigelse af EMLC-fondens overskudsafkast uden for stikprøven}
 \label{tab:progemlc}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
-\input{resultater/tab_prognose_emlc.tex}
+\input{../resultater/tab_prognose_emlc.tex}
 \begin{tablenotes}\footnotesize
 \item \emph{Note:} Som tabel \ref{tab:prog}, men for EMLC-fonden, august 2015 -- november 2026. Prædiktorerne er de samme som for aggregatet.
 \end{tablenotes}
@@ -405,6 +416,7 @@ Analysen viser, at dollarfølsomheden for en dollarinvestor er negativ i 11 af 1
 Samlet set viser analysen, at spørgsmålet ``hvor dollarfølsomme er EM-obligationer i lokalvaluta?'' ikke har ét svar. Svaret afhænger af, hvilke lande man ejer, hvilken valuta man måler i, og hvordan man afdækker.
 
 % ---------------------------------------------------------------- litteratur
+\needspace{14\baselineskip}
 \begin{thebibliography}{99}\small
 \setlength{\itemsep}{0.15em}
 \bibitem[Asness et al.(2013)]{asness2013} Asness, C., Moskowitz, T. og Pedersen, L. (2013). Value and Momentum Everywhere. \emph{Journal of Finance}, 68(3), 929--985.
